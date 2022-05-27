@@ -21,9 +21,8 @@ class Product(models.Model):
     timestamp = models.CharField(max_length=225, default=gettime,null=True,blank=True)
 
 class Cart(models.Model):
-    id=models.AutoField(primary_key=True,editable=False)
     user = models.ForeignKey(User,to_field="username",on_delete=models.CASCADE,default=None, blank=True, null=True)
-    product = models.ForeignKey(Product,to_field="id",on_delete=models.CASCADE,default=None, blank=True, null=True)
+    product = models.ForeignKey(Product,to_field="uuid",on_delete=models.CASCADE,default=None, blank=True, null=True)
     quantity = models.IntegerField(default=1,null=True,blank=True)
     Total_Price = models.IntegerField(default=None,null=True,blank=True)
     product_title = models.CharField(max_length=225, null=True,
