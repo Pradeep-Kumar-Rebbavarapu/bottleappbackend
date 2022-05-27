@@ -3,7 +3,7 @@ from .models import *
 # Register your models here.
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
-    list_display=['uuid','title','desc','image']
+    list_display=['id','title','desc','image']
 @admin.register(Cart)
 class CartAdmin(admin.ModelAdmin):
-    list_display=['id','user','product','quantity','Total_Price']
+    list_display=['id','user','quantity','Total_Price']
