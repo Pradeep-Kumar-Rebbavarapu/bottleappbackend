@@ -9,7 +9,7 @@ def upload(instance,filename):
 
 
 class Product(models.Model):
-    id = models.UUIDField(primary_key=True,editable=False,default=uuid.uuid4)
+    uuid = models.UUIDField(primary_key=True,editable=False,default=uuid.uuid4)
     user = models.ForeignKey(User, on_delete=models.CASCADE,default=None, blank=True, null=True)
     title = models.CharField(max_length=225, null=True,
                              blank=True, default=None)
