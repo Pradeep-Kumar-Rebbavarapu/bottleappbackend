@@ -1,9 +1,5 @@
-import random
-from django.http import HttpResponse
-from django.shortcuts import render
 from rest_framework.decorators import *
 from .serializers import *
-from django.core import serializers
 from rest_framework.response import Response
 from rest_framework.decorators import *
 from rest_framework import status
@@ -11,24 +7,16 @@ from .models import *
 from rest_framework.views import APIView
 from rest_framework.generics import *
 from rest_framework.permissions import IsAuthenticated
-from rest_framework.authtoken.models import Token
 from rest_framework.permissions import IsAuthenticated
 from rest_framework_simplejwt.authentication import JWTAuthentication
 from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework.exceptions import *
 # Create your views here.
-import jwt
 import datetime
-from django.views.decorators.csrf import csrf_exempt 
 import json
 from django.http import JsonResponse
-from rest_framework.renderers import JSONRenderer
-
 from .serializers import UserSerializer
 from .helpers import *
-from django.core.serializers.json import DjangoJSONEncoder
-from rest_framework.authentication import CSRFCheck
-from rest_framework import exceptions
 # Create your views here.
 from django.middleware.csrf import get_token
 class signup(CreateAPIView):
