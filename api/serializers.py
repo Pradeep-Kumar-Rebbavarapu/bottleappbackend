@@ -37,3 +37,12 @@ class ProductSerializer(serializers.ModelSerializer):
         product.save()
         return product
     
+class CartSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Cart
+        fields = '__all__'
+    def create(self,data):
+        cart = Cart.objects.create(user = data.get('user'),product = data.get('product'),datestamp = getdate(),timestamp = gettime(),Total_Price=data.get('product').price,product_title = data.get('product').title,product_image = data.get('product_image'))
+        cart.save()
+        return cart
+    

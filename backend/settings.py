@@ -15,6 +15,7 @@ import os
 from datetime import timedelta
 import dj_database_url
 import django_heroku
+from corsheaders.defaults import default_headers
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -26,9 +27,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-i)_)87*=*72x)!!sai4l2pt1kko8(&_z-^j5z9#oe1qqzo086o'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['.herokuapp.com','localhost:3000','127.0.0.1:3000']
 
 CORS_ALLOW_ALL_ORIGINS = True
 
@@ -192,3 +193,5 @@ STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
 django_heroku.settings(locals())
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
+
+CORS_ALLOW_CREDENTIALS = True

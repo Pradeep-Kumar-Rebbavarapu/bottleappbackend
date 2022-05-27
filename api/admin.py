@@ -4,3 +4,6 @@ from .models import *
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
     list_display=['id','title','desc','image']
+@admin.register(Cart)
+class CartAdmin(admin.ModelAdmin):
+    list_display=['id','user','product','quantity','Total_Price']
