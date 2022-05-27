@@ -110,7 +110,7 @@ class AddToKart(APIView):
                 if user_cart_product_filter:
                     print('old cart')
                     user_product_get = Cart.objects.filter(user=user).get(product=data['product'])
-                    Product_Price = Product.objects.get(id=data['product']).price
+                    Product_Price = Product.objects.get(uuid=data['product']).price
                     New_Quantity = user_product_get.quantity + 1
                     New_Total_Price = (Product_Price)*(New_Quantity)
                     user_product_get.__dict__.update(quantity=New_Quantity,Total_Price=New_Total_Price)
@@ -150,7 +150,7 @@ class RemoveProductsFromCart(APIView):
                 
                 
                 UsersCartItems = Cart.objects.filter(user=user).get(product=data['product'])
-                product = Product.objects.get(id=data['product'])
+                product = Product.objects.get(uuid=data['product'])
                 if UsersCartItems.quantity==1:
                         UsersCartItems.delete()
                         AllData = list(Cart.objects.filter(user=user.username).values())
