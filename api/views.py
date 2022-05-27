@@ -13,7 +13,6 @@ from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework.exceptions import *
 # Create your views here.
 import datetime
-import json
 from django.http import JsonResponse
 from .serializers import UserSerializer
 from .helpers import *
